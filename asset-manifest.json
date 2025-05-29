@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Luigis_website/static/css/main.3198e8fd.css",
-    "main.js": "/Luigis_website/static/js/main.03eb7f50.js",
-    "static/js/453.01d83eca.chunk.js": "/Luigis_website/static/js/453.01d83eca.chunk.js",
-    "static/media/luigi.JPG": "/Luigis_website/static/media/luigi.8e808fda1ca96f2abea7.JPG",
-    "index.html": "/Luigis_website/index.html",
-    "main.3198e8fd.css.map": "/Luigis_website/static/css/main.3198e8fd.css.map",
-    "main.03eb7f50.js.map": "/Luigis_website/static/js/main.03eb7f50.js.map",
-    "453.01d83eca.chunk.js.map": "/Luigis_website/static/js/453.01d83eca.chunk.js.map"
+    "main.css": "/static/css/main.3198e8fd.css",
+    "main.js": "/static/js/main.d7119fad.js",
+    "static/js/453.01d83eca.chunk.js": "/static/js/453.01d83eca.chunk.js",
+    "static/media/luigi.JPG": "/static/media/luigi.8e808fda1ca96f2abea7.JPG",
+    "index.html": "/index.html",
+    "main.3198e8fd.css.map": "/static/css/main.3198e8fd.css.map",
+    "main.d7119fad.js.map": "/static/js/main.d7119fad.js.map",
+    "453.01d83eca.chunk.js.map": "/static/js/453.01d83eca.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3198e8fd.css",
-    "static/js/main.03eb7f50.js"
+    "static/js/main.d7119fad.js"
   ]
 }
