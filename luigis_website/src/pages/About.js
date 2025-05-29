@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import profilePic from "../assets/photos/luigi.JPG";
+import { IconCloud } from "../components/interactive-icon-cloud";
+
 
 const stats = [
   { label: "Programming Languages", value: 9 },
@@ -27,6 +29,37 @@ function AnimatedCounter(props) {
 
   return <div className="text-5xl md:text-6xl font-bold text-primary">{count}+</div>;
 }
+
+const slugs = [
+  "python",
+  "java",
+  "cplusplus",       // For C/C++
+  "typescript",
+  "javascript",
+  "html5",
+  "css3",
+  "go",
+  "react",
+  "fastapi",
+  "tensorflow",
+  "pytorch",
+  "docker",
+  "kubernetes",
+  "amazonaws",       // AWS
+  "postgresql",
+  "firebase",
+  "nginx",
+  "git",
+  "github",
+  "jira",
+  "visualstudiocode",
+  "figma",
+  "linux",
+  "bash",            // Shell scripting
+  "pytest",          // Python testing
+  "jenkins",         // CI/CD (commonly used)
+]
+
 
 export default function About() {
   return (
@@ -63,26 +96,45 @@ export default function About() {
         </div>
       </motion.div>
 
-      {/* Section 2: Counters */}
-      <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-        {stats.map(({ label, value }) => (
+      {/* Section 2: Counters with Icon Cloud behind */}
+      <div className="relative mt-24 w-full h-56 md:h-64"> 
+        {/* Icon Cloud Background */}
           <motion.div
-            key={label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="bg-muted/20 p-8 rounded-2xl shadow-lg backdrop-blur-sm"
-          >
-            <AnimatedCounter end={value} />
-            <p className="text-md font-semibold mt-2 text-muted-foreground">{label}</p>
-          </motion.div>
-        ))}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}  // increased opacity here
+          transition={{ duration: 1.5, delay: 0.5 }}
+          className="absolute inset-0 flex justify-center items-center pointer-events-none select-none"
+          aria-hidden="true"
+        >
+          <IconCloud iconSlugs={slugs} />
+        </motion.div>
+
+
+        {/* Stats Counters */}
+        <div className="relative z-10 flex justify-center items-center h-full px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center bg-muted/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg max-w-4xl w-full">
+            {stats.map(({ label, value }) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className=""
+              >
+                <AnimatedCounter end={value} />
+                <p className="text-md font-semibold mt-2 text-muted-foreground">{label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
+
+
 
       {/* Section 3: Project Callout */}
       <motion.div
-        className="text-center mt-24"
+        className="text-center mt-40"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
