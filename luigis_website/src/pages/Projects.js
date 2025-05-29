@@ -1,5 +1,8 @@
 // src/pages/Projects.js
 import { useState } from "react";
+import complianceConnect from "../assets/photos/projects/compliance_connect.png";
+import bluegpt from "../assets/photos/projects/bluegpt.png";
+import ece319board from "../assets/photos/projects/319circuitboard.jpg";
 
 const sampleProjects = [
   {
@@ -8,7 +11,7 @@ const sampleProjects = [
       "This AI model used a RAG architecture, enabling the compliance team at Dell to obtain product information in seconds from a pool of databases and improving communication with customers.",
     affiliation: "Dell Technologies Internship",
     techStack: ["Python", "RAG", "AI"],
-    media: "/assets/images/compliance_connect.png",
+    media: complianceConnect,
     mediaType: "image",
   },
   {
@@ -17,7 +20,7 @@ const sampleProjects = [
       "Created a fully operational chatbot from scratch using TensorFlow and PyTorch, improving company-wide productivity by 80%.",
     affiliation: "Blue Origin Internship",
     techStack: ["TensorFlow", "PyTorch", "Chatbot"],
-    media: "/assets/images/bluegpt.png",
+    media: bluegpt,
     mediaType: "image",
   },
   {
@@ -26,7 +29,7 @@ const sampleProjects = [
       "Implemented DAC, ADC, Serial COM, and C programming to develop a video game.",
     affiliation: "University of Texas at Austin",
     techStack: ["C", "Embedded Systems"],
-    media: "/assets/images/319circuitboard.jpg",
+    media: ece319board,
     mediaType: "image",
   },
   {
@@ -35,8 +38,8 @@ const sampleProjects = [
       "Programmed the game’s movements in C, achieving bit mapping for the front-end and a multi-functional I/O backend.",
     affiliation: "University of Texas at Austin",
     techStack: ["C", "Game Programming"],
-    media: "/assets/images/319spaceinv.jpg",
-    mediaType: "image",
+    media: "https://www.youtube.com/embed/qEx8jdwbly4",
+    mediaType: "youtube",
   },
   {
     title: "Block Detection Algorithm (TensorFlow Object Detection)",
@@ -44,7 +47,7 @@ const sampleProjects = [
       "Created an algorithm that enhanced FTC Robotics’ object detection efficiency during matches.",
     affiliation: "FTC Robotics",
     techStack: ["TensorFlow", "Computer Vision"],
-    media: "/assets/images/blocksensingvid.MP4",
+    media: "/assets/photos/projects/blocksensingvid.MP4",
     mediaType: "video",
   },
   {
@@ -136,23 +139,33 @@ export default function Projects() {
             >
               {/* Media */}
               <div className="relative h-48 md:h-56 w-full overflow-hidden rounded-t-3xl bg-background border-b border-muted">
-                {project.mediaType === "video" ? (
-                  <video
-                    src={project.media}
-                    controls={isExpanded}
-                    autoPlay={isExpanded}
-                    loop={isExpanded}
-                    muted
-                    className="object-cover w-full h-full"
-                  />
-                ) : (
-                  <img
-                    src={project.media}
-                    alt={project.title}
-                    className="object-cover w-full h-full"
-                  />
-                )}
-              </div>
+              {project.mediaType === "video" ? (
+                <video
+                  src={project.media}
+                  controls={isExpanded}
+                  autoPlay={isExpanded}
+                  loop={isExpanded}
+                  muted
+                  className="object-cover w-full h-full"
+                />
+              ) : project.mediaType === "youtube" ? (
+                <iframe
+                  src={project.media}
+                  title={project.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <img
+                  src={project.media}
+                  alt={project.title}
+                  className="object-cover w-full h-full"
+                />
+              )}
+            </div>
+
 
               {/* Content */}
               <div className="p-6 flex flex-col flex-grow">

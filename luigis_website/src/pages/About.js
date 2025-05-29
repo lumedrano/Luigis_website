@@ -1,7 +1,7 @@
 // src/pages/About.tsx
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import profilePic from "../assets/photos/luigi.JPG";
+import profilePic from "../assets/photos/headshot/luigi.JPG";
 import { IconCloud } from "../components/interactive-icon-cloud";
 
 
