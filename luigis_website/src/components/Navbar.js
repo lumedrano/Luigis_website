@@ -1,6 +1,6 @@
 // src/components/Navbar.js
 import React from 'react';
-import { House, User, FileText, Github } from 'lucide-react';
+import { House, User, FileText, Github, Contact } from 'lucide-react';
 import { NavBar } from './tubelight-navbar';
 
 export function Navbar() {
@@ -9,15 +9,16 @@ export function Navbar() {
     { name: 'About Me', url: '/about', icon: User },
     { name: 'Resume', url: '/resume', icon: FileText },
     { name: 'GitHub', url: 'https://github.com/lumedrano', icon: Github },
+    { name: 'Contact', url: '/contact', icon: Contact },
   ];
 
-  const formattedItems = navItems.map(item => ({
-    ...item,
-    target: item.external ? '_blank' : undefined,
-    rel: item.external ? 'noopener noreferrer' : undefined,
-  }));
+  // const formattedItems = navItems.map(item => ({
+  //   ...item,
+  //   target: item.external ? '_blank' : undefined,
+  //   rel: item.external ? 'noopener noreferrer' : undefined,
+  // }));
 
-  return <NavBar items={formattedItems} />;
+  return <NavBar items={navItems} />;
 }
 
 export default Navbar;
