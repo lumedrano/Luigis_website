@@ -7,7 +7,7 @@ export function Navbar() {
   const navItems = [
     { name: 'Home', url: '/', icon: House },
     { name: 'About Me', url: '/about', icon: User },
-    { name: 'Resume', url: '/resume', icon: FileText },
+    { name: 'Projects', url: '/projects', icon: FileText },
     { name: 'GitHub', url: 'https://github.com/lumedrano', icon: Github },
     { name: 'Contact', url: '/contact', icon: Contact },
   ];
