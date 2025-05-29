@@ -6,7 +6,8 @@ import ece319board from "../assets/photos/projects/319circuitboard.jpg";
 import initbot from "../assets/photos/projects/initdesignbot.MOV";
 import blocksensing from "../assets/photos/projects/blocksensingvid.MP4";
 import aiagent from "../assets/photos/projects/aiagent.mov";
-
+import newbot from "../assets/photos/projects/newbot.jpg";
+import stemsplitter from "../assets/photos/projects/stem_splitter.png";
 const sampleProjects = [
   {
     title: "Dell Technologies Internship - AI Regulatory Compliance Model",
@@ -52,6 +53,7 @@ const sampleProjects = [
     techStack: ["TensorFlow", "Computer Vision"],
     media: blocksensing,
     mediaType: "video",
+    github: "https://github.com/lumedrano/Luigi-Medrano-Computer-Vision-Code-State-Codes-FTC-UG-"
   },
   {
     title: "Robot Design and Programming Competition",
@@ -68,18 +70,18 @@ const sampleProjects = [
       "Led a full rebuild of a robot resulting in a 60% increase in scoring and qualification to state competition.",
     affiliation: "Robotics Team Captain",
     techStack: ["Mechanical Design", "Programming"],
-    media: "/assets/images/newbot.jpg",
+    media: newbot,
     mediaType: "image",
   },
   // New projects
   {
-    title: "Senior Design Project",
+    title: "Senior Design Project - PitCam AI",
     description:
       "Designed and implemented a scalable IoT solution to monitor environmental data in real-time, integrating cloud services and mobile apps for seamless user experience.",
     affiliation: "University of Texas at Austin",
     techStack: ["IoT", "AWS", "React Native"],
-    media: "/assets/images/senior_design_project.jpg",
-    mediaType: "image",
+    media: "https://www.youtube.com/embed/enc_hi03MMg",
+    mediaType: "youtube",
   },
   {
     title: "Gmail Chatbot Agent",
@@ -89,6 +91,7 @@ const sampleProjects = [
     techStack: ["Python", "NLP", "Google API"],
     media: aiagent,
     mediaType: "video",
+    github: "https://github.com/lumedrano/GmailAgent"
   },
   {
     title: "STEM Splitter (Lyric Generation with PyTorch & OpenAI Whisper)",
@@ -96,7 +99,7 @@ const sampleProjects = [
       "Created a model to split and generate song lyrics using PyTorch and OpenAI Whisper for audio processing.",
     affiliation: "Personal Project",
     techStack: ["PyTorch", "OpenAI Whisper", "Audio Processing"],
-    media: "/assets/images/stem_splitter_demo.gif",
+    media: stemsplitter,
     mediaType: "image",
   },
 ];
@@ -104,50 +107,39 @@ const sampleProjects = [
 export default function Projects() {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
-  function toggleExpand(i) {
-    setExpandedIndex(expandedIndex === i ? null : i);
-  }
-
   return (
-    <section className="min-h-screen px-6 py-16 bg-background text-foreground max-w-7xl mx-auto">
-      <div className="flex justify-center mb-12">
-        <a
-          href="/assets/Luigi_Medrano_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-6 py-3 bg-primary text-background rounded-full font-semibold hover:bg-primary-dark transition"
-          download
-        >
-          Preview / Download Resume
-        </a>
-      </div>
+  <section className="min-h-screen px-6 py-16 bg-background text-foreground max-w-7xl mx-auto">
+    <div className="flex justify-center mb-12">
+      <a
+        href="/assets/Luigi_Medrano_Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="px-6 py-3 bg-primary text-background rounded-full font-semibold hover:bg-primary-dark transition"
+        download
+      >
+        Preview / Download Resume
+      </a>
+    </div>
 
-      <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {sampleProjects.map((project, i) => {
-          const isExpanded = expandedIndex === i;
-
-          return (
-            <div
-              key={project.title}
-              className={`bg-card rounded-3xl shadow-lg flex flex-col overflow-hidden cursor-pointer
-              transition-all duration-300
-              ${isExpanded ? "col-span-full" : ""}
-              `}
-              onClick={() => toggleExpand(i)}
-              aria-expanded={isExpanded}
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") toggleExpand(i);
-              }}
-            >
-              {/* Media */}
-              <div className="relative h-48 md:h-56 w-full overflow-hidden rounded-t-3xl bg-background border-b border-muted">
+    <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+      {sampleProjects.map((project, i) => {
+        return (
+          <div
+            key={project.title}
+            className="bg-card rounded-3xl shadow-lg flex flex-col overflow-hidden cursor-pointer transition-all duration-300"
+            onClick={() => setExpandedIndex(i)}
+            aria-expanded={expandedIndex === i}
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") setExpandedIndex(i);
+            }}
+          >
+            {/* Media */}
+            <div className="relative h-48 md:h-56 w-full overflow-hidden rounded-t-3xl bg-background border-b border-muted">
               {project.mediaType === "video" ? (
                 <video
                   src={project.media}
-                  controls={isExpanded}
-                  autoPlay={isExpanded}
-                  loop={isExpanded}
+                  controls={false}
                   muted
                   className="object-cover w-full h-full"
                 />
@@ -169,59 +161,103 @@ export default function Projects() {
               )}
             </div>
 
-
-              {/* Content */}
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className={`text-muted-foreground transition-all duration-300 ${isExpanded ? "line-clamp-none" : "line-clamp-3"}`}>
-                  {project.description}
-                </p>
-
-                {isExpanded && (
-                  <>
-                    <p className="mt-4 italic text-sm text-muted-foreground">
-                      Affiliation: {project.affiliation}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      {project.techStack.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block mt-5 px-5 py-2 bg-primary text-background rounded-full font-semibold hover:bg-primary-dark transition self-start"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        View Code
-                      </a>
-                    )}
-
-                    <button
-                      className="mt-6 text-sm text-primary underline self-start"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleExpand(i);
-                      }}
-                    >
-                      Collapse
-                    </button>
-                  </>
-                )}
-              </div>
+            {/* Content */}
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+              <p className="text-muted-foreground line-clamp-3">
+                {project.description}
+              </p>
             </div>
-          );
-        })}
+          </div>
+        );
+      })}
+    </div>
+
+    {/* Modal popup */}
+    {expandedIndex !== null && (
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 p-6"
+        onClick={() => setExpandedIndex(null)}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <div
+          className="bg-white rounded-3xl shadow-xl max-w-3xl w-full mx-4 p-6 relative max-h-[80vh] overflow-y-auto text-black"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Close button */}
+          <button
+            onClick={() => setExpandedIndex(null)}
+            className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl font-bold"
+            aria-label="Close modal"
+          >
+            &times;
+          </button>
+
+          {/* Media */}
+          <div className="mb-4">
+            {sampleProjects[expandedIndex].mediaType === "video" ? (
+              <video
+                src={sampleProjects[expandedIndex].media}
+                controls
+                autoPlay
+                className="w-full max-h-[60vh] rounded-xl object-contain"
+              />
+            ) : sampleProjects[expandedIndex].mediaType === "youtube" ? (
+              <iframe
+                src={sampleProjects[expandedIndex].media}
+                title={sampleProjects[expandedIndex].title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full max-h-[60vh] rounded-xl"
+                style={{ objectFit: "contain" }}
+              />
+            ) : (
+              <img
+                src={sampleProjects[expandedIndex].media}
+                alt={sampleProjects[expandedIndex].title}
+                className="w-full max-h-[60vh] rounded-xl object-contain"
+              />
+            )}
+          </div>
+
+          {/* Text content */}
+          <h3 id="modal-title" className="text-2xl font-bold mb-3">
+            {sampleProjects[expandedIndex].title}
+          </h3>
+          <p className="mb-4">{sampleProjects[expandedIndex].description}</p>
+
+          <p className="italic text-sm text-muted-foreground mb-4">
+            Affiliation: {sampleProjects[expandedIndex].affiliation}
+          </p>
+
+          <div className="flex flex-wrap gap-2 mb-4">
+            {sampleProjects[expandedIndex].techStack.map((tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {sampleProjects[expandedIndex].github && (
+            <a
+              href={sampleProjects[expandedIndex].github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-5 py-2 bg-primary text-background rounded-full font-semibold hover:bg-primary-dark transition"
+            >
+              View Code
+            </a>
+          )}
+        </div>
       </div>
-    </section>
-  );
+    )}
+  </section>
+);
+
 }
