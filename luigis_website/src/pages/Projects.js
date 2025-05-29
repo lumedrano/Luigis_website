@@ -3,6 +3,9 @@ import { useState } from "react";
 import complianceConnect from "../assets/photos/projects/compliance_connect.png";
 import bluegpt from "../assets/photos/projects/bluegpt.png";
 import ece319board from "../assets/photos/projects/319circuitboard.jpg";
+import initbot from "../assets/photos/projects/initdesignbot.MOV";
+import blocksensing from "../assets/photos/projects/blocksensingvid.MP4";
+import aiagent from "../assets/photos/projects/aiagent.mov";
 
 const sampleProjects = [
   {
@@ -47,7 +50,7 @@ const sampleProjects = [
       "Created an algorithm that enhanced FTC Robotics’ object detection efficiency during matches.",
     affiliation: "FTC Robotics",
     techStack: ["TensorFlow", "Computer Vision"],
-    media: "/assets/photos/projects/blocksensingvid.MP4",
+    media: blocksensing,
     mediaType: "video",
   },
   {
@@ -56,7 +59,7 @@ const sampleProjects = [
       "Led a team to design and program a robot capable of accomplishing over 80% of tasks within a week.",
     affiliation: "FTC Robotics",
     techStack: ["Robotics", "C++", "Java"],
-    media: "/assets/images/initdesignbot.MOV",
+    media: initbot,
     mediaType: "video",
   },
   {
@@ -84,8 +87,8 @@ const sampleProjects = [
       "Developed a Gmail-integrated chatbot agent to automate email responses using NLP.",
     affiliation: "Personal Project",
     techStack: ["Python", "NLP", "Google API"],
-    media: "/assets/images/gmail_chatbot.png",
-    mediaType: "image",
+    media: aiagent,
+    mediaType: "video",
   },
   {
     title: "STEM Splitter (Lyric Generation with PyTorch & OpenAI Whisper)",
