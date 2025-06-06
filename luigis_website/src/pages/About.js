@@ -145,7 +145,7 @@ export default function About() {
           A collection of personal and academic projects — built with passion and code.
         </p>
         <a
-          href="/projects"
+          href="/#/projects"
           className="inline-block px-6 py-3 bg-primary text-background rounded-full font-medium shadow-md hover:scale-105 transition-transform duration-300"
         >
           View Projects →
