@@ -1,6 +1,8 @@
+
 // import React, { useEffect, useState } from "react";
 // import { motion, AnimatePresence } from "framer-motion";
-// import { Typewriter } from "../components/typewriter";
+// // import { Typewriter } from "../components/typewriter";
+// import {DecryptingText} from "../components/DecryptingText";
 // import { Link } from "react-router-dom";
 
 // // Pop-in loud animation variant for chat bubbles
@@ -141,14 +143,13 @@
 //                 <span className="font-medium text-primary">Luigi</span>.
 //               </span>
 //               <span className="block">I build things for the web as a{" "}</span>
-//               <Typewriter
-//                 text={["Software Engineer", "Web Developer", "Tech Enthusiast"]}
-//                 speed={70}
-//                 waitTime={1500}
-//                 deleteSpeed={40}
-//                 cursorChar="_"
-//                 className="text-orange-500 font-semibold"
+//               <DecryptingText
+//               text={["Software Engineer", "Web Developer", "Tech Enthusiast"]}
+//               speed={50}
+//               waitTime={2000}
+//               className="text-orange-500 font-semibold"
 //               />
+
 //             </p>
 
 //             <motion.div
@@ -172,15 +173,12 @@
 
 // export default Home;
 
-
-
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// import { Typewriter } from "../components/typewriter";
-import {DecryptingText} from "../components/DecryptingText";
+import { AppleHelloEnglishEffect } from "../components/apple-hello-effect";
+import { DecryptingText } from "../components/DecryptingText";
 import { Link } from "react-router-dom";
 
-// Pop-in loud animation variant for chat bubbles
 const popInLoud = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
   visible: {
@@ -216,30 +214,53 @@ const introVariants = {
 };
 
 function Home() {
-  const [showChat, setShowChat] = useState(true);
+  const [showHello, setShowHello] = useState(true);
+  const [showChat, setShowChat] = useState(false);
   const [showReply, setShowReply] = useState(false);
+  const [showMainContent, setShowMainContent] = useState(false);
 
   useEffect(() => {
+    const helloTimer = setTimeout(() => {
+      setShowHello(false);
+      setShowChat(true);
+    }, 2500); // Apple Hello duration
+
     const replyTimer = setTimeout(() => {
       setShowReply(true);
-    }, 1500);
+    }, 4300); // Start replies after a delay
 
-    const hideTimer = setTimeout(() => {
+    const introTimer = setTimeout(() => {
       setShowChat(false);
-    }, 3000); // Adjusted for longer delay between second and third bubble
+      setShowMainContent(true);
+    }, 5000); // Show intro after chats finish
 
     return () => {
+      clearTimeout(helloTimer);
       clearTimeout(replyTimer);
-      clearTimeout(hideTimer);
+      clearTimeout(introTimer);
     };
   }, []);
 
   return (
-    // <div className="w-full h-screen flex items-center justify-center bg-background px-4 text-center">
     <div className="w-full h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 px-4 text-center">
-
       <AnimatePresence mode="wait">
-        {showChat ? (
+        {showHello && (
+          <motion.div
+            key="hello"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{
+              opacity: 0,
+              scale: 4, // Zoom into the hello on exit
+              transition: { duration: 1 },
+            }}
+            className="w-full h-screen flex items-center justify-center"
+          >
+            <AppleHelloEnglishEffect speed={0.8} />
+          </motion.div>
+        )}
+
+        {showChat && (
           <motion.div
             key="chat"
             className="flex flex-col max-w-md w-full"
@@ -253,7 +274,7 @@ function Home() {
               className="rounded-3xl px-8 py-5 max-w-md self-end shadow-lg text-lg"
               style={{
                 borderTopRightRadius: 0,
-                backgroundColor: "#3B82F6", // Shiny blue
+                backgroundColor: "#3B82F6",
                 color: "white",
                 boxShadow: "0 4px 12px rgba(59, 130, 246, 0.7)",
               }}
@@ -269,8 +290,8 @@ function Home() {
                   className="rounded-3xl px-8 py-5 max-w-md self-start mt-5 shadow-lg text-lg"
                   style={{
                     borderTopLeftRadius: 0,
-                    backgroundColor: "#E5E7EB", // Light gray
-                    color: "#374151", // Dark gray text
+                    backgroundColor: "#E5E7EB",
+                    color: "#374151",
                     boxShadow: "0 4px 12px rgba(209, 213, 219, 0.7)",
                   }}
                   variants={popInLoud}
@@ -289,21 +310,21 @@ function Home() {
                     backgroundColor: "#E5E7EB",
                     color: "#374151",
                     boxShadow: "0 4px 12px rgba(209, 213, 219, 0.7)",
-                    alignText: "left"
                   }}
                   variants={popInLoud}
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  transition={{ delay: 2.2 }}
+                  transition={{ delay: 1.5 }}
                 >
                   Come learn more about me and my work!💻
                 </motion.div>
               </>
             )}
           </motion.div>
-        ) : (
-          // Intro content after chat
+        )}
+
+        {showMainContent && (
           <motion.div
             key="intro"
             className="max-w-4xl"
@@ -317,14 +338,13 @@ function Home() {
                 Hey there! I'm{" "}
                 <span className="font-medium text-primary">Luigi</span>.
               </span>
-              <span className="block">I build things for the web as a{" "}</span>
+              <span className="block">I build things for the web as a </span>
               <DecryptingText
-              text={["Software Engineer", "Web Developer", "Tech Enthusiast"]}
-              speed={50}
-              waitTime={2000}
-              className="text-orange-500 font-semibold"
+                text={["Software Engineer", "Web Developer", "Tech Enthusiast"]}
+                speed={50}
+                waitTime={2000}
+                className="text-orange-500 font-semibold"
               />
-
             </p>
 
             <motion.div
@@ -333,9 +353,9 @@ function Home() {
               transition={{ delay: 1.2, duration: 0.5 }}
             >
               <Link
-                  to="/about"
-                  className="relative z-50 inline-block px-6 py-3 rounded-full bg-primary text-background font-semibold text-base shadow-lg hover:scale-105 hover:bg-primary/90 transition-transform duration-300 cursor-pointer animate-pulse hover:animate-none"
-                >
+                to="/about"
+                className="relative z-50 inline-block px-6 py-3 rounded-full bg-primary text-background font-semibold text-base shadow-lg hover:scale-105 hover:bg-primary/90 transition-transform duration-300 cursor-pointer animate-pulse hover:animate-none"
+              >
                 Learn more about me →
               </Link>
             </motion.div>

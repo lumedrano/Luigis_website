@@ -7,7 +7,6 @@ import ece319board from "../assets/photos/projects/319circuitboard.jpg";
 import initbot from "../assets/photos/projects/initdesignbot.MOV";
 import blocksensing from "../assets/photos/projects/blocksensingvid.MP4";
 import aiagent from "../assets/photos/projects/aiagent.mov";
-import newbot from "../assets/photos/projects/newbot.jpg";
 import stemsplitter from "../assets/photos/projects/stem_splitter.png";
 
 const sampleProjects = [
@@ -67,15 +66,6 @@ const sampleProjects = [
     mediaType: "video",
   },
   {
-    title: "3-day Built Robot for Regionals",
-    description:
-      "Led a full rebuild of a robot resulting in a 60% increase in scoring and qualification to state competition.",
-    affiliation: "Robotics Team Captain",
-    techStack: ["Mechanical Design", "Programming"],
-    media: newbot,
-    mediaType: "image",
-  },
-  {
     title: "Senior Design Project - PitCam AI",
     description:
       "Designed and Implemented a vision-based AI system for autonomous driving using computer vision and machine learning algorithms for the University of Texas at Austin Senior Design Capstone Project. Utilized YOLO models, object tracking, and a PID controller for smooth steering.",
@@ -103,6 +93,7 @@ const sampleProjects = [
     techStack: ["PyTorch", "OpenAI Whisper", "Audio Processing"],
     media: stemsplitter,
     mediaType: "image",
+    github: "https://github.com/lumedrano/ECE460J_FinalProject",
   },
 ];
 
