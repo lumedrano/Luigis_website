@@ -103,12 +103,13 @@ export default function About() {
           contactText="Contact Me"
           avatarUrl={profilePic}
           showUserInfo={true}
-          enableTilt={false}
-          enableMobileTilt={false}
+          enableTilt={true}
+          enableMobileTilt={true}
           onContactClick={() => navigate("/contact")} // <-- navigate here
           className="h-full"
           showBehindGradient={false}
           innerGradient="none"
+          textColor="white"
         />
 
         </div>

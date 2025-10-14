@@ -19,6 +19,7 @@ interface ProfileCardProps {
   status?: string;
   contactText?: string;
   showUserInfo?: boolean;
+  textColor?: string;
   onContactClick?: () => void;
 }
 
@@ -60,8 +61,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   title = 'Software Engineer',
   handle = 'javicodes',
   status = 'Online',
-  contactText = 'Contact',
+  contactText = '',
   showUserInfo = true,
+  textColor,
   onContactClick
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -309,7 +311,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                       }}
                     />
                   </div>
-                  <div className="pc-user-text">
+                  <div className="pc-user-text" style={{ color: textColor || 'white', zIndex: 10 }}>
                     <div className="pc-handle">@{handle}</div>
                     <div className="pc-status">{status}</div>
                   </div>
