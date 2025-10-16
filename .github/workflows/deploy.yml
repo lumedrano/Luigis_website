@@ -31,6 +31,9 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Build and Deploy
-        run: npx gh-pages -d build --repo https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/lumedrano/Luigis_website.git
+        run: |
+          npm run build
+          npx gh-pages -d build --repo https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/lumedrano/Luigis_website.git
         working-directory: ./luigis_website
+
 
