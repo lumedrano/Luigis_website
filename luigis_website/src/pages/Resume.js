@@ -8,8 +8,11 @@ import profilePic from "../assets/photos/headshot/resume_photo.jpg";
 
 
 
-export default function ResumeDashboard() {
+
+export default function ResumeSection() {
   const [activeSection, setActiveSection] = useState("Profile");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
 
   const sidebarItems = [
     { label: "Profile", icon: <User size={20} /> },
@@ -106,18 +109,18 @@ export default function ResumeDashboard() {
         showBehindGradient={false}
         innerGradient="none"
         textColor="black"
-        contactText={(
-          <a
-            href="https://www.linkedin.com/in/luigi-medrano/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:opacity-80 transition"
-          >
-            <img src={linkedin} alt="LinkedIn" className="w-10 h-10" />
-            
-          </a>
-        )}
+        onContactClick={() =>
+          window.open("https://www.linkedin.com/in/luigi-medrano/", "_blank")
+        }
+        contactText={
+          <img
+            src={linkedin}
+            alt="LinkedIn"
+            className="w-10 h-10 hover:opacity-80 transition cursor-pointer"
+          />
+        }
       />
+
 
       
       <div className="text-center text-gray-700 space-y-2">
@@ -232,13 +235,45 @@ export default function ResumeDashboard() {
   };
 
   return (
-    <div className="min-h-screen flex relative overflow-x-hidden bg-gradient-to-b from-gray-50 to-gray-200">
+    <div className="min-h-screen flex flex-col md:flex-row relative overflow-x-hidden bg-gradient-to-b from-gray-50 to-gray-200">
+      {/* Mobile Header */}
+      <div className="md:hidden flex items-center justify-between p-4 bg-white shadow">
+        <h2 className="text-lg font-semibold text-gray-800">Resume Dashboard</h2>
+        <button
+          onClick={() => setSidebarOpen((prev) => !prev)}
+          className="p-2 rounded-md hover:bg-gray-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 5.25h16.5m-16.5 6h16.5m-16.5 6h16.5"
+            />
+          </svg>
+        </button>
+      </div>
+
       {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-lg flex flex-col py-10 px-4 space-y-6 sticky top-0 h-screen">
+      <motion.aside
+        initial={{ x: "-100%" }}
+        animate={{ x: sidebarOpen || window.innerWidth >= 768 ? 0 : "-100%" }}
+        transition={{ duration: 0.3 }}
+        className="fixed md:static top-0 left-0 z-40 h-full w-64 bg-white shadow-lg flex flex-col py-10 px-4 space-y-6"
+      >
         {sidebarItems.map((item) => (
           <button
             key={item.label}
-            onClick={() => setActiveSection(item.label)}
+            onClick={() => {
+              setActiveSection(item.label);
+              setSidebarOpen(false); // close sidebar on mobile
+            }}
             className={`flex items-center gap-3 p-3 rounded-lg transition ${
               activeSection === item.label
                 ? "bg-black text-white"
@@ -248,24 +283,41 @@ export default function ResumeDashboard() {
             {item.icon} {item.label}
           </button>
         ))}
-      </aside>
+      </motion.aside>
+
+{/* Overlay for mobile when sidebar is open */}
+{sidebarOpen && window.innerWidth < 768 && (
+  <div
+    onClick={() => setSidebarOpen(false)}
+    className="fixed inset-0 bg-black bg-opacity-40 md:hidden"
+  />
+)}
+
+
+      {/* Overlay for mobile when sidebar is open */}
+      {sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          className="fixed inset-0 bg-black bg-opacity-40 md:hidden"
+        />
+      )}
 
       {/* Main Content */}
-      <main className="flex-1 p-10 flex items-center justify-center">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeSection}
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
-          transition={{ duration: 0.5 }}
-          className="w-full max-w-3xl"
-        >
-          {sections[activeSection]}
-        </motion.div>
-      </AnimatePresence>
-    </main>
-
+      <main className="flex-1 p-6 md:p-10 flex items-center justify-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeSection}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.5 }}
+            className="w-full max-w-3xl"
+          >
+            {sections[activeSection]}
+          </motion.div>
+        </AnimatePresence>
+      </main>
     </div>
   );
+
 }

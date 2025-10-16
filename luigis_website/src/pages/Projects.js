@@ -1,6 +1,6 @@
 // src/pages/Projects.js
 import { useState } from "react";
-import { Github, PlayCircle, FileText } from "lucide-react";
+import { Github, PlayCircle } from "lucide-react";
 import complianceConnect from "../assets/photos/projects/compliance_connect.png";
 import bluegpt from "../assets/photos/projects/bluegpt.png";
 import ece319board from "../assets/photos/projects/319circuitboard.jpg";
@@ -102,7 +102,7 @@ export default function Projects() {
 
   return (
     <section className="min-h-screen px-6 py-16 bg-background text-foreground max-w-7xl mx-auto">
-      <div className="bg-card p-6 rounded-3xl shadow-lg mb-12 flex flex-col items-center text-center max-w-md mx-auto">
+      {/* <div className="bg-card p-6 rounded-3xl shadow-lg mb-12 flex flex-col items-center text-center max-w-md mx-auto">
   <h2 className="text-2xl font-bold mb-2">View My Resume</h2>
   <p className="text-muted-foreground mb-4">Learn more about my experience, skills, and education.</p>
   <a
@@ -115,7 +115,7 @@ export default function Projects() {
     <FileText className="w-5 h-5" />
     Download Resume (PDF)
   </a>
-</div>
+</div> */}
 
 
       <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
