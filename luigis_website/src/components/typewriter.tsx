@@ -1,5 +1,6 @@
 // src/components/typewriter.tsx
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
+import * as React from "react";
 import { motion } from "framer-motion";
 import { cn } from "../lib/utils";
 
