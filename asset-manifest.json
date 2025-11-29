@@ -1,28 +1,42 @@
 {
   "files": {
-    "main.css": "/static/css/main.6c2c021c.css",
-    "main.js": "/static/js/main.0ddc01d1.js",
-    "static/js/453.1b047ae5.chunk.js": "/static/js/453.1b047ae5.chunk.js",
+    "main.css": "/static/css/main.71b8189d.css",
+    "main.js": "/static/js/main.88b4ac42.js",
+    "static/js/206.efebddd8.chunk.js": "/static/js/206.efebddd8.chunk.js",
     "static/media/aiagent.mov": "/static/media/aiagent.125861fe3778fb3e7f04.mov",
     "static/media/blocksensingvid.MP4": "/static/media/blocksensingvid.cbd537ae92776e611313.MP4",
+    "static/media/order_of_engineer.JPG": "/static/media/order_of_engineer.6a721ef2be229c7e94a8.JPG",
     "static/media/319circuitboard.jpg": "/static/media/319circuitboard.520bef938668d80bfe2a.jpg",
     "static/media/luigi.JPG": "/static/media/luigi.8e808fda1ca96f2abea7.JPG",
+    "static/media/dell_recruiting_1.JPG": "/static/media/dell_recruiting_1.44295c8d4c68a7cf6494.JPG",
+    "static/media/guadaloop.jpg": "/static/media/guadaloop.dba9c5bb78834b342dda.jpg",
+    "static/media/capstone_project_2.JPG": "/static/media/capstone_project_2.f409832f6c9ce9237011.JPG",
     "static/media/stem_splitter.png": "/static/media/stem_splitter.55cbf2c37a3ba4374bbc.png",
+    "static/media/senior_photo.JPG": "/static/media/senior_photo.5fa6b4b1d30dc54493c4.JPG",
+    "static/media/capstone_project_1.JPG": "/static/media/capstone_project_1.29bbe6351e2cade295d3.JPG",
+    "static/media/blueorigin_1stday.jpg": "/static/media/blueorigin_1stday.b1479944c5f09f249e4c.jpg",
     "static/media/initdesignbot.MOV": "/static/media/initdesignbot.173751652fe756a098a7.MOV",
+    "static/media/blueorigin_coin.jpg": "/static/media/blueorigin_coin.2c60fa5af31348b08b46.jpg",
+    "static/media/trophy_ftc.jpg": "/static/media/trophy_ftc.91e7b88618252ab24500.jpg",
+    "static/media/graduation_pic.jpg": "/static/media/graduation_pic.1485485cd7d704078bbf.jpg",
+    "static/media/ftc_insta_post.jpg": "/static/media/ftc_insta_post.ca880a697aaf471c0ca3.jpg",
+    "static/media/dell_recruiting_2.JPG": "/static/media/dell_recruiting_2.20536bd7c63a83e9b370.JPG",
+    "static/media/lego_robotics.jpg": "/static/media/lego_robotics.4a8abc286c29bfbeaebc.jpg",
+    "static/media/Flag_of_Mexico.jpg": "/static/media/Flag_of_Mexico.67752ce48a802793516a.jpg",
     "static/media/compliance_connect.png": "/static/media/compliance_connect.d96c809508ca475fea51.png",
     "static/media/resume_photo.jpg": "/static/media/resume_photo.01c455a96f291f27e346.jpg",
+    "static/media/hsf_mentor.JPG": "/static/media/hsf_mentor.20350fe565ab4c317c5a.JPG",
+    "static/media/hsf_speaker.JPG": "/static/media/hsf_speaker.879ae8862a800101973b.JPG",
     "static/media/bluegpt.png": "/static/media/bluegpt.38fde0fc068e71dc9672.png",
+    "static/media/hsf_scholar_stem.JPG": "/static/media/hsf_scholar_stem.fd6d62188ca97e629bcc.JPG",
     "static/media/github.svg": "/static/media/github.b2294bccaa20da50b7d58419f07c0892.svg",
     "static/media/instagram.svg": "/static/media/instagram.8ff7ce92ad753b591ed4c1d03e84c026.svg",
     "static/media/linkedin.svg": "/static/media/linkedin.c304a4148cde039a54532585f4d47b48.svg",
     "index.html": "/index.html",
-    "static/media/gmail.svg": "/static/media/gmail.e1bc2ceb745debf9361ad2160a79823a.svg",
-    "main.6c2c021c.css.map": "/static/css/main.6c2c021c.css.map",
-    "main.0ddc01d1.js.map": "/static/js/main.0ddc01d1.js.map",
-    "453.1b047ae5.chunk.js.map": "/static/js/453.1b047ae5.chunk.js.map"
+    "static/media/gmail.svg": "/static/media/gmail.e1bc2ceb745debf9361ad2160a79823a.svg"
   },
   "entrypoints": [
-    "static/css/main.6c2c021c.css",
-    "static/js/main.0ddc01d1.js"
+    "static/css/main.71b8189d.css",
+    "static/js/main.88b4ac42.js"
   ]
 }
