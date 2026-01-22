@@ -1,7 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.71b8189d.css",
-    "main.js": "/static/js/main.88b4ac42.js",
+    "main.css": "/static/css/main.e0750589.css",
+    "main.js": "/static/js/main.df27dcba.js",
+    "static/js/271.f2ffb2f1.chunk.js": "/static/js/271.f2ffb2f1.chunk.js",
+    "static/js/849.4a273b01.chunk.js": "/static/js/849.4a273b01.chunk.js",
+    "static/js/330.77a1020c.chunk.js": "/static/js/330.77a1020c.chunk.js",
+    "static/js/287.d1a29157.chunk.js": "/static/js/287.d1a29157.chunk.js",
+    "static/js/230.ce9bd8ce.chunk.js": "/static/js/230.ce9bd8ce.chunk.js",
+    "static/js/851.1d41c62d.chunk.js": "/static/js/851.1d41c62d.chunk.js",
+    "static/js/113.6494d9b1.chunk.js": "/static/js/113.6494d9b1.chunk.js",
+    "static/js/94.a5769e93.chunk.js": "/static/js/94.a5769e93.chunk.js",
     "static/js/206.efebddd8.chunk.js": "/static/js/206.efebddd8.chunk.js",
     "static/media/aiagent.mov": "/static/media/aiagent.125861fe3778fb3e7f04.mov",
     "static/media/blocksensingvid.MP4": "/static/media/blocksensingvid.cbd537ae92776e611313.MP4",
@@ -36,7 +44,7 @@
     "static/media/gmail.svg": "/static/media/gmail.e1bc2ceb745debf9361ad2160a79823a.svg"
   },
   "entrypoints": [
-    "static/css/main.71b8189d.css",
-    "static/js/main.88b4ac42.js"
+    "static/css/main.e0750589.css",
+    "static/js/main.df27dcba.js"
   ]
 }
