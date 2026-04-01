@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.e0750589.css",
-    "main.js": "/static/js/main.df27dcba.js",
+    "main.css": "/static/css/main.0b5f9698.css",
+    "main.js": "/static/js/main.0f76d18d.js",
     "static/js/271.f2ffb2f1.chunk.js": "/static/js/271.f2ffb2f1.chunk.js",
     "static/js/849.4a273b01.chunk.js": "/static/js/849.4a273b01.chunk.js",
     "static/js/330.77a1020c.chunk.js": "/static/js/330.77a1020c.chunk.js",
@@ -23,6 +23,7 @@
     "static/media/senior_photo.JPG": "/static/media/senior_photo.5fa6b4b1d30dc54493c4.JPG",
     "static/media/capstone_project_1.JPG": "/static/media/capstone_project_1.29bbe6351e2cade295d3.JPG",
     "static/media/blueorigin_1stday.jpg": "/static/media/blueorigin_1stday.b1479944c5f09f249e4c.jpg",
+    "static/media/BlankBevo.mp4": "/static/media/BlankBevo.732fbc8786b75288066b.mp4",
     "static/media/initdesignbot.MOV": "/static/media/initdesignbot.173751652fe756a098a7.MOV",
     "static/media/blueorigin_coin.jpg": "/static/media/blueorigin_coin.2c60fa5af31348b08b46.jpg",
     "static/media/trophy_ftc.jpg": "/static/media/trophy_ftc.91e7b88618252ab24500.jpg",
@@ -44,7 +45,7 @@
     "static/media/gmail.svg": "/static/media/gmail.e1bc2ceb745debf9361ad2160a79823a.svg"
   },
   "entrypoints": [
-    "static/css/main.e0750589.css",
-    "static/js/main.df27dcba.js"
+    "static/css/main.0b5f9698.css",
+    "static/js/main.0f76d18d.js"
   ]
 }
