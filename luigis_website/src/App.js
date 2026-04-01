@@ -6,7 +6,6 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Resume from './pages/Resume';
 import Test from './pages/test';
-import ValentinesInvite from './pages/Valentine';
 import SplineScene  from './pages/spline';
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/test" element={<Test />} />
-        <Route path="/valentines" element={<ValentinesInvite />}/>
         <Route path="/spline" element={<SplineScene />} />
       </Routes>
     </Router>
