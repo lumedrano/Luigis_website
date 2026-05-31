@@ -149,6 +149,21 @@ export default function About() {
           .about-intro-animation {
             animation: smoothIntro 2.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
           }
+          @keyframes flagRingSpin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+          }
+          .flag-ring {
+            animation: flagRingSpin 4s linear infinite;
+            background: conic-gradient(
+              #006847 0deg 120deg,
+              #ffffff 120deg 240deg,
+              #CE1126 240deg 360deg
+            );
+          }
+          .flag-ring-hover:hover .flag-ring {
+            animation-duration: 1.2s;
+          }
         `}</style>
 
         {/* VIDEO — fills the section */}
@@ -301,44 +316,41 @@ export default function About() {
                         viewport={{ once: true }}
                       />
                       
-                      <motion.div 
-                        className="relative w-16 h-16 rounded-full bg-gradient-to-br from-green-600 via-white to-red-600 border-4 border-white shadow-2xl flex items-center justify-center mb-6 font-bold text-sm cursor-pointer"
-                        whileHover={{ 
-                          boxShadow: "0 0 40px rgba(255,255,255,0.9)",
-                          scale: 1.15,
-                          rotate: 360
-                        }}
+                      {/* Spinning flag ring year circle */}
+                      <motion.div
+                        className="relative w-20 h-20 mb-6 cursor-pointer flag-ring-hover"
+                        whileHover={{ scale: 1.18 }}
                         animate={{
-                          boxShadow: [
-                            "0 0 20px rgba(255,255,255,0.3)",
-                            "0 0 30px rgba(255,255,255,0.5)",
-                            "0 0 20px rgba(255,255,255,0.3)",
+                          filter: [
+                            "drop-shadow(0 0 8px rgba(255,255,255,0.4))",
+                            "drop-shadow(0 0 18px rgba(255,255,255,0.7))",
+                            "drop-shadow(0 0 8px rgba(255,255,255,0.4))",
                           ],
                         }}
                         transition={{
-                          boxShadow: {
-                            duration: 2,
-                            repeat: Infinity,
-                            repeatType: "reverse",
-                          },
-                          rotate: { duration: 0.6 }
+                          filter: { duration: 2, repeat: Infinity, repeatType: "reverse" },
+                          scale: { type: "spring", stiffness: 300, damping: 18 },
                         }}
+                        onClick={() => setExpandedMilestone(expandedMilestone === index ? null : index)}
                       >
-                        <span className="text-gray-900 font-extrabold">{event.year}</span>
-                        
+                        {/* Outer spinning conic ring */}
+                        <div className="flag-ring absolute inset-0 rounded-full" />
+                        {/* Inner dark circle */}
+                        <div className="absolute inset-[4px] rounded-full bg-black/85 flex items-center justify-center">
+                          <span className="text-white font-extrabold text-[10px] leading-tight text-center px-1">
+                            {event.year}
+                          </span>
+                        </div>
+
                         {event.photos && event.photos.length > 0 && (
-                          <motion.button
-                            onClick={() => setExpandedMilestone(expandedMilestone === index ? null : index)}
-                            className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-blue-500 border-2 border-white shadow-lg flex items-center justify-center text-white text-xs font-bold cursor-pointer hover:bg-blue-600 transition-colors"
-                            whileHover={{ scale: 1.3, rotate: 15 }}
-                            whileTap={{ scale: 0.9 }}
-                            title="View photos"
+                          <motion.div
+                            className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-blue-500 border-2 border-white shadow-lg flex items-center justify-center text-white text-xs font-bold pointer-events-none"
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ delay: index * 0.2 + 0.5, type: "spring", stiffness: 200 }}
                           >
                             {event.photos.length}
-                          </motion.button>
+                          </motion.div>
                         )}
                       </motion.div>
                       

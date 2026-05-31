@@ -365,14 +365,13 @@ const publicationData = [
 
 export default function ResumeSection() {
   const [activeSection, setActiveSection] = useState("Profile");
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const sidebarItems = [
-    { label: "Profile",       icon: <User size={20} /> },
-    { label: "Experience",    icon: <Briefcase size={20} /> },
-    { label: "Projects",      icon: <Folder size={20} /> },
-    { label: "Publications",  icon: <BookOpen size={20} /> },
-    { label: "Skills",        icon: <Settings size={20} /> },
+  const navItems = [
+    { label: "Profile",       icon: <User size={16} /> },
+    { label: "Experience",    icon: <Briefcase size={16} /> },
+    { label: "Projects",      icon: <Folder size={16} /> },
+    { label: "Publications",  icon: <BookOpen size={16} /> },
+    { label: "Skills",        icon: <Settings size={16} /> },
   ];
 
   const experienceData = [
@@ -470,7 +469,7 @@ export default function ResumeSection() {
             <img
               src={linkedin}
               alt="LinkedIn"
-              className="w-10 h-10 hover:opacity-80 transition cursor-pointer"
+              className="hover:opacity-80 transition cursor-pointer"
             />
           }
         />
@@ -643,51 +642,43 @@ export default function ResumeSection() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row relative overflow-x-hidden bg-gradient-to-b from-gray-50 to-gray-200">
-      {/* Mobile Header */}
-      <div className="md:hidden flex items-center justify-between p-4 bg-white shadow">
-        <h2 className="text-lg font-semibold text-gray-800">Resume Dashboard</h2>
-        <button onClick={() => setSidebarOpen((prev) => !prev)} className="p-2 rounded-md hover:bg-gray-200">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 6h16.5m-16.5 6h16.5" />
-          </svg>
-        </button>
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-50 to-gray-200 pt-20">
+      {/* Sticky horizontal pill tab bar — top-[68px] keeps it below the fixed main navbar */}
+      <div className="sticky top-[68px] z-20 flex justify-center pt-4 pb-4 bg-gradient-to-b from-gray-50 via-gray-50/90 to-transparent">
+        <div className="flex items-center gap-1 bg-white/90 backdrop-blur-md border border-gray-200 rounded-full shadow-lg p-1.5 overflow-x-auto max-w-full mx-4">
+          {navItems.map((item) => (
+            <button
+              key={item.label}
+              onClick={() => setActiveSection(item.label)}
+              className="relative flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-black"
+            >
+              {activeSection === item.label && (
+                <motion.div
+                  layoutId="activeResumePill"
+                  className="absolute inset-0 bg-black rounded-full"
+                  transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                />
+              )}
+              <span className={`relative z-10 ${activeSection === item.label ? "text-white" : "text-gray-600 hover:text-gray-900"}`}>
+                {item.icon}
+              </span>
+              <span className={`relative z-10 ${activeSection === item.label ? "text-white" : "text-gray-600 hover:text-gray-900"}`}>
+                {item.label}
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Sidebar */}
-      <motion.aside
-        initial={{ x: "-100%" }}
-        animate={{ x: sidebarOpen || window.innerWidth >= 768 ? 0 : "-100%" }}
-        transition={{ duration: 0.3 }}
-        className="fixed md:static top-0 left-0 z-40 h-full w-64 bg-white shadow-lg flex flex-col py-10 px-4 space-y-6"
-      >
-        {sidebarItems.map((item) => (
-          <button
-            key={item.label}
-            onClick={() => { setActiveSection(item.label); setSidebarOpen(false); }}
-            className={`flex items-center gap-3 p-3 rounded-lg transition ${
-              activeSection === item.label ? "bg-black text-white" : "hover:bg-gray-300 text-gray-800"
-            }`}
-          >
-            {item.icon} {item.label}
-          </button>
-        ))}
-      </motion.aside>
-
-      {/* Overlay */}
-      {sidebarOpen && (
-        <div onClick={() => setSidebarOpen(false)} className="fixed inset-0 bg-black bg-opacity-40 md:hidden z-30" />
-      )}
-
       {/* Main Content */}
-      <main className="flex-1 p-6 md:p-10 flex items-center justify-center">
+      <main className="flex-1 px-6 py-8 md:px-10 md:py-10 flex justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeSection}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
             className="w-full max-w-3xl"
           >
             {sections[activeSection]}
