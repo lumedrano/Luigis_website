@@ -203,39 +203,73 @@ export default function About() {
                   About Me
                 </h1>
 
-                <div className="bg-[#1e1e1e] rounded-xl shadow-lg p-6 font-mono text-sm md:text-base text-gray-100 flex flex-col h-[480px]">
-                  <div className="flex items-center space-x-2 mb-4">
-                    <span className="w-3 h-3 bg-red-500 rounded-full" />
-                    <span className="w-3 h-3 bg-yellow-500 rounded-full" />
-                    <span className="w-3 h-3 bg-green-500 rounded-full" />
-                    <span className="ml-2 text-gray-400 text-xs">about_me.py</span>
+                <div className="bg-[#1e1e1e] rounded-xl shadow-2xl font-mono text-sm md:text-base text-gray-100 flex flex-col h-[480px] overflow-hidden">
+                  {/* Title bar */}
+                  <div className="flex items-center bg-[#323233] px-3 py-2 gap-2 shrink-0">
+                    <span className="w-3 h-3 bg-[#ff5f57] rounded-full" />
+                    <span className="w-3 h-3 bg-[#febc2e] rounded-full" />
+                    <span className="w-3 h-3 bg-[#28c840] rounded-full" />
+                    <span className="flex-1 text-center text-[#9d9d9d] text-xs tracking-wide select-none">about_me.py — Luigi Medrano</span>
                   </div>
 
-                  <div className="flex-1 overflow-y-auto mb-4 pr-2">
+                  {/* Tab bar */}
+                  <div className="flex items-end bg-[#252526] border-b border-[#1e1e1e] shrink-0">
+                    <div className="flex items-center gap-2 bg-[#1e1e1e] px-4 py-1.5 border-t-2 border-t-[#007acc] text-[#cccccc] text-xs">
+                      <span className="text-yellow-400">🐍</span>
+                      <span>about_me.py</span>
+                      <span className="text-[#9d9d9d] hover:text-white cursor-pointer ml-1">×</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-4 py-1.5 text-[#9d9d9d] text-xs cursor-pointer hover:bg-[#2d2d2d]">
+                      <span>README.md</span>
+                    </div>
+                  </div>
+
+                  {/* Code area */}
+                  <div className="flex-1 overflow-y-auto py-3 bg-[#1e1e1e] scrollbar-thin scrollbar-thumb-[#424242] scrollbar-track-transparent">
                     <Typewriter
                       lines={pythonLines}
                       speed={5}
                       initialDelay={500}
                       showCursor={true}
-                      cursorChar="_"
+                      cursorChar="|"
                     />
                   </div>
 
-                  <div className="pt-4 border-t border-gray-600 mt-auto">
-                    <p className="text-gray-400 text-xs mb-2">$ select an option:</p>
-                    <div className="flex gap-3">
-                      <button
-                        onClick={() => navigate("/contact")}
-                        className="flex-1 bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded text-green-400 text-sm font-mono transition-colors"
-                      >
-                        $ contact me
-                      </button>
-                      <button
-                        onClick={() => navigate("/projects")}
-                        className="flex-1 bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded text-blue-400 text-sm font-mono transition-colors"
-                      >
-                        $ view projects
-                      </button>
+                  {/* Terminal panel */}
+                  <div className="bg-[#1a1a1a] border-t border-[#333] shrink-0">
+                    <div className="flex items-center gap-4 px-3 py-1 bg-[#252526] border-b border-[#333]">
+                      <span className="text-[#cccccc] text-xs border-b border-[#007acc] pb-0.5">TERMINAL</span>
+                      <span className="text-[#9d9d9d] text-xs">PROBLEMS</span>
+                    </div>
+                    <div className="px-3 py-2">
+                      <p className="text-[#9d9d9d] text-xs mb-2">luigi@portfolio:~$</p>
+                      <div className="flex gap-3">
+                        <button
+                          onClick={() => navigate("/contact")}
+                          className="flex-1 bg-[#2d2d2d] hover:bg-[#3a3a3a] px-3 py-1.5 rounded text-green-400 text-xs font-mono transition-colors border border-[#444] hover:border-green-400/50"
+                        >
+                          ./contact_me.sh
+                        </button>
+                        <button
+                          onClick={() => navigate("/projects")}
+                          className="flex-1 bg-[#2d2d2d] hover:bg-[#3a3a3a] px-3 py-1.5 rounded text-blue-400 text-xs font-mono transition-colors border border-[#444] hover:border-blue-400/50"
+                        >
+                          ./view_projects.sh
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Status bar */}
+                  <div className="flex items-center justify-between bg-[#007acc] px-3 py-0.5 text-white text-[10px] shrink-0">
+                    <div className="flex items-center gap-3">
+                      <span>⎇ main</span>
+                      <span>✓ 0 errors</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span>Ln {pythonLines.length}, Col 1</span>
+                      <span>Python 3.11</span>
+                      <span>UTF-8</span>
                     </div>
                   </div>
                 </div>

@@ -76,26 +76,31 @@ const Typewriter = ({
   return (
     <div
       className={cn(
-        "inline-block font-mono text-sm md:text-base whitespace-pre-wrap tracking-tight",
+        "font-mono text-sm md:text-base whitespace-pre-wrap tracking-tight w-full",
         className
       )}
     >
       {lines.map((_, idx) => (
-        <div key={idx}>
-          {displayedLines[idx]?.map((part, pidx) => (
-            <span key={pidx} className={part.className}>
-              {part.text}
-            </span>
-          ))}
-          {showCursor && idx === currentLine && currentCharIndex <= lines[idx].map(p => p.text).join("").length && (
-            <motion.span
-              className={cursorClassName}
-              animate={{ opacity: [0, 1] }}
-              transition={{ repeat: Infinity, duration: 0.8 }}
-            >
-              {cursorChar}
-            </motion.span>
-          )}
+        <div key={idx} className="flex">
+          <span className="select-none w-8 text-right pr-4 text-[#4a4a5a] shrink-0 leading-6">
+            {idx + 1}
+          </span>
+          <span className="flex-1 leading-6">
+            {displayedLines[idx]?.map((part, pidx) => (
+              <span key={pidx} className={part.className}>
+                {part.text}
+              </span>
+            ))}
+            {showCursor && idx === currentLine && currentCharIndex <= lines[idx].map(p => p.text).join("").length && (
+              <motion.span
+                className={cursorClassName}
+                animate={{ opacity: [0, 1] }}
+                transition={{ repeat: Infinity, duration: 0.8 }}
+              >
+                {cursorChar}
+              </motion.span>
+            )}
+          </span>
         </div>
       ))}
     </div>
