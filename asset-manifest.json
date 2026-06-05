@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.96ad95e4.css",
-    "main.js": "/static/js/main.62f4ff22.js",
+    "main.css": "/static/css/main.6b8bcdb1.css",
+    "main.js": "/static/js/main.36835338.js",
     "static/js/271.f2ffb2f1.chunk.js": "/static/js/271.f2ffb2f1.chunk.js",
     "static/js/849.4a273b01.chunk.js": "/static/js/849.4a273b01.chunk.js",
     "static/js/330.77a1020c.chunk.js": "/static/js/330.77a1020c.chunk.js",
@@ -45,7 +45,7 @@
     "static/media/gmail.svg": "/static/media/gmail.e1bc2ceb745debf9361ad2160a79823a.svg"
   },
   "entrypoints": [
-    "static/css/main.96ad95e4.css",
-    "static/js/main.62f4ff22.js"
+    "static/css/main.6b8bcdb1.css",
+    "static/js/main.36835338.js"
   ]
 }
