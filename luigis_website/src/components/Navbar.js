@@ -35,7 +35,7 @@ export function Navbar() {
     { name: 'Projects', url: '/projects', icon: FileText },
     { name: 'Resume', url: '/resume', icon: ScrollText }, // ✅ Added Resume link
     { name: 'GitHub', url: 'https://github.com/lumedrano', icon: Github },
-    { name: 'Contact', url: '/contact', icon: Contact },
+    { name: 'Contacts', url: '/contact', icon: Contact },
   ];
 
   return <NavBar items={navItems} />;
